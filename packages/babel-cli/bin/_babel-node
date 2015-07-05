@@ -116,14 +116,14 @@ if (program.eval || program.print) {
   }
 }
 
-function replStart() {
-  repl.start({
-    prompt: "> ",
-    input: process.stdin,
-    output: process.stdout,
-    eval: replEval,
-    useGlobal: true
-  });
+function replStart(replOpts) {
+  replOpts = replOpts || {};
+  replOpts.prompt = replOpts.prompt !== undefined ? replOpts.prompt || "> ";
+  replOpts.input = replOpts.input || process.stdin;
+  replOpts.output = replOpts.output || process.stdout;
+  replOpts.eval = replOpts.eval || replEval;
+  replOpts.useGlobal = replOpts.useGlobal !== undefined ? replOpts.useGlobal || true;
+  repl.start(replOpts);
 }
 
 function replEval(code, context, filename, callback) {
@@ -142,3 +142,8 @@ function replEval(code, context, filename, callback) {
 
   callback(err, result);
 }
+
+exports = replStart;
+exports.replStart = replStart;
+exports.replEval = replEval;
+exports._eval = _eval;

@@ -1,10 +1,11 @@
 {
-  "name": "babel-repl",
+  "name": "babels-repl",
   "description": "A modularized version of the Babel repl",
+  "version": "1.0.0",
   "author": "rektide de la faye <rektide@voodoowarez.com>",
   "homepage": "https://babeljs.io/",
   "license": "MIT",
-  "repository": "rektide/babel-repl",
+  "repository": "rektide/babels-repl",
   "preferGlobal": true,
   "dependencies": {
     "chokidar": "^1.0.0",
@@ -20,6 +21,6 @@
     "slash": "^1.0.0"
   },
   "bin": {
-    "babel-repl": "./bin/babel-node"
+    "babels-repl": "./bin/babel-node"
   }
 }
